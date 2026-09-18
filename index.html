@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苏豫鑫 · 竞选心理委员 | 2026级工商管理专业2601班</title>
+<style>
+/* ===================== 主题变量 ===================== */
+:root{
+  --bg-0:#070b1c;
+  --bg-1:#0f1330;
+  --bg-2:#151a3d;
+  --text:#e9ebf7;
+  --text-dim:#a6adcf;
+  --accent:#a78bfa;
+  --accent-2:#fbbf24;
+  --accent-3:#93c5fd;
+  --card:rgba(255,255,255,.045);
+  --card-border:rgba(167,139,250,.22);
+  --card-shadow:0 10px 40px rgba(0,0,0,.35);
+  --line:rgba(255,255,255,.10);
+  --radius:18px;
+  --maxw:1000px;
+}
+body.light{
+  --bg-0:#f8f9fd;
+  --bg-1:#eef1f9;
+  --bg-2:#e7ecf7;
+  --text:#1b2140;
+  --text-dim:#4d5578;
+  --accent:#6d4bd8;
+  --accent-2:#b45309;
+  --accent-3:#1d4ed8;
+  --card:rgba(255,255,255,.88);
+  --card-border:rgba(109,75,216,.22);
+  --card-shadow:0 10px 30px rgba(60,70,120,.12);
+  --line:rgba(30,40,90,.12);
+}
+
+/* ===================== 基础 ===================== */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg-0);
+  line-height:1.8;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .45s ease,color .45s ease;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 15% 0%, rgba(124,58,237,.30), transparent 60%),
+    radial-gradient(900px 600px at 85% 8%, rgba(59,130,246,.22), transparent 60%),
+    radial-gradient(1000px 800px at 50% 100%, rgba(167,139,250,.16), transparent 65%),
+    linear-gradient(180deg,var(--bg-0),var(--bg-1) 45%,var(--bg-2));
+  transition:background .45s ease;
+}
+body.light::before{
+  background:
+    radial-gradient(1200px 700px at 15% 0%, rgba(167,139,250,.20), transparent 62%),
+    radial-gradient(900px 600px at 85% 8%, rgba(59,130,246,.14), transparent 62%),
+    linear-gradient(180deg,#fafbff,#eef1f9 50%,#e6ecf7);
+}
+img{max-width:100%;}
+p{margin:0 0 1em;}
+h1,h2,h3{line-height:1.3;margin:0;font-weight:700;letter-spacing:.01em;}
+
+/* ===================== 星空层 ===================== */
+.starfield{
+  position:fixed; inset:0; z-index:-1;
+  pointer-events:none; overflow:hidden;
+  transition:opacity .45s ease;
+}
+.starfield i{
+  position:absolute;
+  left:var(--x); top:var(--y);
+  width:var(--s); height:var(--s);
+  border-radius:50%;
+  background:#fff;
+  opacity:var(--o);
+  animation:twinkle var(--d) ease-in-out var(--dl) infinite;
+  will-change:opacity,transform;
+}
+@keyframes twinkle{
+  0%,100%{opacity:var(--o); transform:scale(1);}
+  50%{opacity:.12; transform:scale(.65);}
+}
+body.light .starfield{opacity:.35;}
+
+/* ===================== 首屏 ===================== */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  padding:100px 22px 70px;
+}
+.hero-glow{
+  position:absolute;
+  width:min(760px,92vw); height:min(760px,92vw);
+  left:50%; top:50%; transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(167,139,250,.20), transparent 62%);
+  filter:blur(14px);
+  pointer-events:none; z-index:-1;
+}
+.hero-inner{position:relative; max-width:860px; width:100%;}
+
+.eyebrow{
+  display:inline-block;
+  font-size:.78rem; letter-spacing:.16em;
+  color:var(--accent-3);
+  border:1px solid var(--card-border);
+  background:var(--card);
+  border-radius:999px;
+  padding:7px 18px;
+  margin-bottom:30px;
+  backdrop-filter:blur(8px);
+}
+.hero h1{
+  font-size:clamp(2.9rem,9vw,5.2rem);
+  letter-spacing:.06em;
+  margin-bottom:14px;
+  background:linear-gradient(120deg,#ffffff 10%,var(--accent) 55%,var(--accent-3) 95%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 46px rgba(167,139,250,.28);
+}
+body.light .hero h1{
+  background:linear-gradient(120deg,#2b2170 10%,var(--accent) 60%,var(--accent-3) 95%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+.role{
+  font-size:clamp(1.1rem,3vw,1.5rem);
+  color:var(--text-dim);
+  margin-bottom:6px;
+}
+.role span{
+  color:var(--accent-2);
+  font-weight:700;
+  border-bottom:2px solid rgba(251,191,36,.45);
+  padding-bottom:2px;
+}
+.classline{
+  font-size:.95rem; color:var(--text-dim); letter-spacing:.05em;
+  margin-bottom:44px;
+}
+.slogan{
+  margin:0 auto 46px;
+  max-width:640px;
+  padding:26px 24px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.s-main{
+  display:block;
+  font-size:clamp(1.25rem,3.6vw,1.8rem);
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:12px;
+}
+.s-sub{
+  display:block;
+  font-size:clamp(.95rem,2.4vw,1.08rem);
+  color:var(--text-dim);
+  letter-spacing:.06em;
+}
+.hero-actions{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+}
+.btn{
+  display:inline-block;
+  font-family:inherit; font-size:.95rem;
+  padding:13px 30px;
+  border-radius:999px;
+  border:1px solid var(--card-border);
+  background:var(--card);
+  color:var(--text);
+  text-decoration:none;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+.btn:hover{transform:translateY(-2px); border-color:var(--accent);}
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),#7c3aed);
+  border-color:transparent;
+  color:#fff;
+  box-shadow:0 12px 34px rgba(124,58,237,.36);
+}
+.btn-primary:hover{box-shadow:0 16px 42px rgba(124,58,237,.48);}
+.scroll-hint{
+  margin-top:52px; font-size:1.3rem; color:var(--text-dim);
+  animation:floaty 2.4s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{transform:translateY(0); opacity:.6;}
+  50%{transform:translateY(9px); opacity:1;}
+}
+
+/* ===================== 主体 ===================== */
+main{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 22px 90px;
+}
+.section{margin-bottom:78px; scroll-margin-top:30px;}
+.sec-head{
+  display:flex; align-items:baseline; gap:16px;
+  margin-bottom:26px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.sec-num{
+  font-size:.82rem; font-weight:700; letter-spacing:.14em;
+  color:var(--accent);
+  border:1px solid var(--card-border);
+  border-radius:8px;
+  padding:3px 10px;
+  flex:none;
+}
+.sec-head h2{
+  font-size:clamp(1.3rem,3.6vw,1.7rem);
+  letter-spacing:.04em;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius);
+  padding:28px 30px;
+  backdrop-filter:blur(10px);
+  box-shadow:var(--card-shadow);
+}
+.card p:last-child{margin-bottom:0;}
+.lead{font-size:1.1rem; font-weight:600; color:var(--text);}
+.hl{
+  color:var(--accent-2);
+  font-weight:600;
+  padding-left:16px;
+  border-left:3px solid var(--accent-2);
+  margin-top:22px;
+}
+
+/* 三件事 */
+.three{
+  display:grid; gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+}
+.three .card{padding:26px 24px;}
+.three h3{
+  font-size:1.12rem; margin-bottom:12px;
+  display:flex; align-items:center; gap:9px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent); flex:none;
+  box-shadow:0 0 12px var(--accent);
+}
+.three p{font-size:.94rem; color:var(--text-dim); margin:0;}
+
+/* 优势 */
+.adv-grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.adv{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-left:3px solid var(--accent);
+  border-radius:14px;
+  padding:20px 22px;
+  backdrop-filter:blur(8px);
+  transition:transform .25s ease, border-color .25s ease;
+}
+.adv:hover{transform:translateY(-3px); border-left-color:var(--accent-2);}
+.adv h3{font-size:1.02rem; margin-bottom:8px; color:var(--accent-3);}
+.adv p{font-size:.92rem; color:var(--text-dim); margin:0;}
+
+/* 工作规划 */
+.plan-grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(275px,1fr));
+}
+.plan{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:24px 22px 20px;
+  backdrop-filter:blur(8px);
+  transition:transform .25s ease, border-color .25s ease;
+}
+.plan:hover{transform:translateY(-3px); border-color:var(--accent);}
+.pn{
+  position:absolute; top:16px; right:18px;
+  font-size:1.5rem; font-weight:800;
+  color:var(--accent); opacity:.22;
+  letter-spacing:.02em;
+}
+.plan h3{
+  font-size:1.02rem; margin-bottom:10px;
+  padding-right:44px;
+  color:var(--text);
+}
+.plan p{font-size:.92rem; color:var(--text-dim); margin:0;}
+.badge{
+  display:inline-block;
+  font-size:.68rem; letter-spacing:.08em;
+  color:var(--accent-2);
+  border:1px solid rgba(251,191,36,.4);
+  border-radius:999px;
+  padding:1px 9px;
+  margin-left:8px;
+  vertical-align:2px;
+  font-weight:600;
+}
+
+/* 承诺 */
+.pledge{display:grid; gap:14px;}
+.pledge-item{
+  display:flex; gap:16px;
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:20px 22px;
+  backdrop-filter:blur(8px);
+}
+.pledge-item .k{
+  flex:none;
+  font-weight:700;
+  color:var(--accent);
+  min-width:76px;
+  font-size:.98rem;
+}
+.pledge-item .v{font-size:.94rem; color:var(--text-dim);}
+.pledge-item.urgent{border-color:rgba(251,191,36,.4);}
+.pledge-item.urgent .k{color:var(--accent-2);}
+
+/* 求助渠道 */
+.help{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.help-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:22px;
+  backdrop-filter:blur(8px);
+}
+.help-card h3{font-size:.98rem; margin-bottom:8px; color:var(--accent-3);}
+.help-card p{font-size:.9rem; color:var(--text-dim); margin:0;}
+
+/* 结尾 */
+.outro{
+  text-align:center;
+  padding:60px 28px 54px;
+  border:1px solid var(--card-border);
+  border-radius:24px;
+  background:var(--card);
+  backdrop-filter:blur(12px);
+  box-shadow:var(--card-shadow);
+}
+.outro .quote{
+  font-size:clamp(1.15rem,3.2vw,1.55rem);
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:26px;
+  line-height:1.7;
+}
+.outro .sig{
+  font-size:1.05rem; font-weight:700; color:var(--accent-2);
+  letter-spacing:.08em;
+}
+.outro .sig-sub{
+  font-size:.88rem; color:var(--text-dim); margin-top:6px;
+  letter-spacing:.05em;
+}
+.outro .line{
+  width:56px; height:2px; margin:0 auto 26px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+
+/* 页脚 */
+footer{
+  text-align:center;
+  font-size:.8rem;
+  color:var(--text-dim);
+  padding:0 22px 46px;
+  opacity:.75;
+  letter-spacing:.04em;
+}
+
+/* ===================== 浮动按钮 ===================== */
+.fabs{
+  position:fixed; right:18px; bottom:22px;
+  display:flex; flex-direction:column; gap:10px;
+  z-index:50;
+}
+.fab{
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid var(--card-border);
+  background:var(--card);
+  color:var(--text);
+  font-size:1.05rem;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .22s ease, border-color .22s ease, opacity .22s ease;
+  box-shadow:0 6px 22px rgba(0,0,0,.28);
+}
+.fab:hover{transform:translateY(-2px); border-color:var(--accent);}
+#topBtn{opacity:0; pointer-events:none;}
+#topBtn.show{opacity:1; pointer-events:auto;}
+
+/* ===================== 滚动淡入 ===================== */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.in{opacity:1; transform:none;}
+
+/* ===================== 响应式 ===================== */
+@media (max-width:768px){
+  body{font-size:16px;}
+  .card{padding:24px 20px;}
+  .hero{padding:80px 18px 60px;}
+  .slogan{padding:22px 12px;}
+  .pledge-item{flex-direction:column; gap:8px;}
+  .pledge-item .k{min-width:auto;}
+  main{padding:0 16px 70px;}
+  .section{margin-bottom:60px;}
+  .outro{padding:46px 20px 42px;}
+}
+
+/* ===================== 无障碍：减少动效 ===================== */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none !important; transition:none !important;}
+  .reveal{opacity:1 !important; transform:none !important;}
+}
+
+/* ===================== 打印优化 ===================== */
+@media print{
+  :root{
+    --bg-0:#fff; --bg-1:#fff; --bg-2:#fff;
+    --text:#111; --text-dim:#3d3d3d;
+    --accent:#4c2ea8; --accent-2:#8a5a00; --accent-3:#1a4bb8;
+    --card:#fff; --card-border:#c3c3c3;
+    --card-shadow:none; --line:#ccc;
+  }
+  html,body{background:#fff !important; color:#111 !important; font-size:12pt;}
+  body::before,.starfield,.hero-glow,.fabs,.hero-actions,.scroll-hint{display:none !important;}
+  .hero{min-height:auto; padding:0 0 22px; text-align:left;}
+  .hero-inner{max-width:none;}
+  .hero h1{
+    -webkit-text-fill-color:#111 !important;
+    background:none !important;
+    color:#111 !important;
+    text-shadow:none !important;
+    font-size:26pt;
+  }
+  .slogan{border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin-bottom:20px;}
+  .eyebrow{border-color:#bbb; background:#fff; color:#333;}
+  .reveal{opacity:1 !important; transform:none !important;}
+  .section{margin-bottom:22px; page-break-inside:avoid; break-inside:avoid;}
+  .card,.adv,.plan,.pledge-item,.help-card,.outro{
+    background:#fff !important;
+    border:1px solid #ccc !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    page-break-inside:avoid; break-inside:avoid;
+  }
+  .three,.adv-grid,.plan-grid,.help{grid-template-columns:1fr 1fr;}
+  .pn{opacity:.18;}
+  .badge{border-color:#999; color:#555;}
+  a{color:#111; text-decoration:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== 星空背景 ===================== -->
+<div class="starfield" aria-hidden="true" id="starfield"></div>
+
+<!-- ===================== 首屏 ===================== -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">郑州工商学院兰考学院 · 2026—2027学年 班级学生干部竞选</p>
+    <h1>苏豫鑫</h1>
+    <p class="role">竞选 · <span>心理委员</span></p>
+    <p class="classline">2026级工商管理专业2601班</p>
+
+    <blockquote class="slogan">
+      <span class="s-main">夜空再黑，也有一颗星为你亮着</span>
+      <span class="s-sub">把心事交给夜色，把倾听交给我</span>
+    </blockquote>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#who">往下看看</a>
+      <button class="btn" type="button" id="themeBtnHero">切换浅色</button>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">↓</div>
+  </div>
+</header>
+
+<!-- ===================== 主体 ===================== -->
+<main>
+
+  <!-- 01 我是谁 -->
+  <section class="section" id="who">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>我是谁</h2>
+    </div>
+    <div class="card reveal">
+      <p class="lead">苏豫鑫，2026级工商管理专业2601班。</p>
+      <p>我没有担任过班干部。这不是什么需要绕开的事。</p>
+      <p>它只是意味着，我更清楚一个普通同学坐在教室里是什么感受：<br>不想被点名，不想被围观，不想把心事摊在台面上。</p>
+      <p class="hl">所以我不打算“管理”谁。我只想安静地在旁边，做一个愿意听的人。</p>
+    </div>
+  </section>
+
+  <!-- 02 我理解的心理委员 -->
+  <section class="section" id="understand">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>我理解的“心理委员”</h2>
+    </div>
+    <p class="reveal" style="color:var(--text-dim); margin-bottom:20px;">
+      它不是“心理医生”，也不是“班级情绪警察”。<br>
+      它是一个普通人能做的三件事：
+    </p>
+    <div class="three">
+      <div class="card reveal">
+        <h3><span class="dot"></span>看见</h3>
+        <p>谁最近不怎么说话了，谁总是一个人去吃饭，谁在群里突然变得很安静——我会留意，但不会盯着看。</p>
+      </div>
+      <div class="card reveal">
+        <h3><span class="dot"></span>接住</h3>
+        <p>你愿意说，我就听。不打断、不评判、不急着给你讲道理，也不催你“想开点”。</p>
+      </div>
+      <div class="card reveal">
+        <h3><span class="dot"></span>转交</h3>
+        <p>超出我能力范围的事，我不会硬扛。我会陪着你，一起找到真正能帮上忙的人。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 我的优势 -->
+  <section class="section" id="strength">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>我的优势</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv reveal">
+        <h3>耐心</h3>
+        <p>你说话慢、绕、说不清楚，我都等你说完。不催，也不替你把话补完。</p>
+      </div>
+      <div class="adv reveal">
+        <h3>细心</h3>
+        <p>谁的状态变了、谁和谁闹了别扭，我习惯先看在眼里，而不是先说出来。</p>
+      </div>
+      <div class="adv reveal">
+        <h3>共情力强</h3>
+        <p>我不会说“这有什么大不了的”。你的难受，在你那里就是真的难受。</p>
+      </div>
+      <div class="adv reveal">
+        <h3>嘴严</h3>
+        <p>你说的事，默认留在我们之间。不转述、不传播、不当谈资。</p>
+      </div>
+      <div class="adv reveal">
+        <h3>不评判</h3>
+        <p>不嘲笑、不贴标签、不替你下结论。你想不通的事，我陪你慢慢想。</p>
+      </div>
+      <div class="adv reveal">
+        <h3>办实事</h3>
+        <p>不整虚的。该交的反馈、该组织的测评、该做的记录，按时做完，有交代。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 我的工作规划 -->
+  <section class="section" id="plan">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>我的工作规划</h2>
+    </div>
+    <div class="plan-grid">
+
+      <article class="plan reveal">
+        <span class="pn">01</span>
+        <h3>每月心理健康情况反馈</h3>
+        <p>每月按时整理、如实反馈。平时有记录，不临时凑、不凭印象编。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">02</span>
+        <h3>每学年心理测评</h3>
+        <p>提前通知、讲清流程、耐心答疑，尽量不漏一个人，也不让谁因为不懂而尴尬。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">03</span>
+        <h3>日常观察与记录</h3>
+        <p>不打扰、不贴标签、不公开讨论。只做必要的记录，只向该知道的人说。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">04</span>
+        <h3>辅助班委 · 执行辅导员安排</h3>
+        <p>配合班长和其他班委的工作，辅导员老师临时交办的任务，接了就有回音。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">05</span>
+        <h3>每月心理小贴士<span class="badge">计划</span></h3>
+        <p>一期一个实用主题：怎么睡得好一点、怎么面对期末焦虑、怎么和室友把话说开。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">06</span>
+        <h3>匿名心情投递<span class="badge">计划</span></h3>
+        <p>打算设一个不用署名的投递方式，每月整理一次。共性的困扰，隐去所有可识别信息后再做反馈。</p>
+      </article>
+
+      <article class="plan reveal">
+        <span class="pn">07</span>
+        <h3>月度心情晴雨表<span class="badge">计划</span></h3>
+        <p>以不记名、自愿为原则，用简单方式让大家标记最近的状态，帮我更早发现需要关注的同学。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 05 我的边界与承诺 -->
+  <section class="section" id="pledge">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>我的边界与承诺</h2>
+    </div>
+    <div class="pledge">
+      <div class="pledge-item reveal">
+        <span class="k">保密</span>
+        <span class="v">你说的话，默认留在我们之间。不转述、不传播、不当谈资。</span>
+      </div>
+      <div class="pledge-item reveal">
+        <span class="k">不评判</span>
+        <span class="v">不嘲笑、不贴标签、不替你做决定。你想说多少，就说多少。</span>
+      </div>
+      <div class="pledge-item reveal">
+        <span class="k">不越界</span>
+        <span class="v">我不是心理咨询师。超出我能力范围的事，我会陪你一起去找能帮上忙的人，而不是自己硬扛。</span>
+      </div>
+      <div class="pledge-item urgent reveal">
+        <span class="k">必须上报</span>
+        <span class="v">如果涉及自伤、伤人或其他严重风险，我会第一时间告诉辅导员老师。这不是不守信用——这是为了先保证你的安全。</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 求助渠道 -->
+  <section class="section" id="help">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>需要帮助时，可以找这些地方</h2>
+    </div>
+    <div class="help">
+      <div class="help-card reveal">
+        <h3>学校心理健康教育与咨询中心</h3>
+        <p>地点、预约方式以学校官方公布为准。需要时我可以陪你一起去。</p>
+      </div>
+      <div class="help-card reveal">
+        <h3>全国统一心理援助热线</h3>
+        <p>12356（以官方公布为准）。24小时，可匿名，适合说不出口的时候。</p>
+      </div>
+      <div class="help-card reveal">
+        <h3>辅导员老师 / 团总支</h3>
+        <p>紧急或复杂的情况，第一时间找辅导员老师，永远是最稳妥的选择。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 结尾 -->
+  <section class="section" id="end">
+    <div class="outro reveal">
+      <div class="line" aria-hidden="true"></div>
+      <p class="quote">如果你不想说话，也没关系。<br>我先把位置留在这儿。</p>
+      <p class="sig">谢谢你，看到这里</p>
+      <p class="sig-sub">苏豫鑫 · 2026级工商管理专业2601班 · 竞选心理委员</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  郑州工商学院兰考学院 · 2026—2027学年班级学生干部竞选
+</footer>
+
+<!-- ===================== 浮动按钮 ===================== -->
+<div class="fabs">
+  <button class="fab" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+  <button class="fab" id="topBtn" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- 1. 生成星空 ---------- */
+  var sf = document.getElementById('starfield');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (sf && !reduce) {
+    var count = window.innerWidth < 768 ? 55 : 95;
+    var buf = '';
+    for (var i = 0; i < count; i++) {
+      var size = (Math.random() * 1.8 + 1).toFixed(2);
+      var x = (Math.random() * 100).toFixed(2);
+      var y = (Math.random() * 100).toFixed(2);
+      var dur = (Math.random() * 4 + 2.5).toFixed(2);
+      var delay = (Math.random() * 5).toFixed(2);
+      var op = (Math.random() * 0.5 + 0.25).toFixed(2);
+      buf += '<i style="--x:' + x + '%;--y:' + y + '%;--s:' + size + 'px;--d:' + dur +
+             's;--dl:' + delay + 's;--o:' + op + '"></i>';
+    }
+    sf.innerHTML = buf;
+  }
+
+  /* ---------- 2. 滚动淡入 ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el, idx) {
+      el.style.transitionDelay = (Math.min(idx % 6, 5) * 60) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- 3. 明暗主题切换 ---------- */
+  var themeBtn = document.getElementById('themeBtn');
+  var themeBtnHero = document.getElementById('themeBtnHero');
+  var body = document.body;
+
+  function syncLabels() {
+    var isLight = body.classList.contains('light');
+    if (themeBtn) themeBtn.textContent = isLight ? '☀' : '☾';
+    if (themeBtnHero) themeBtnHero.textContent = isLight ? '切换深色' : '切换浅色';
+  }
+  function toggleTheme() {
+    body.classList.toggle('light');
+    syncLabels();
+  }
+  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+  if (themeBtnHero) themeBtnHero.addEventListener('click', toggleTheme);
+  syncLabels();
+
+  /* ---------- 4. 回到顶部 ---------- */
+  var topBtn = document.getElementById('topBtn');
+  function onScroll() {
+    if (!topBtn) return;
+    if (window.scrollY > 420) topBtn.classList.add('show');
+    else topBtn.classList.remove('show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------- 5. 打印时强制浅色 ---------- */
+  window.addEventListener('beforeprint', function () {
+    body.classList.add('light');
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  });
+})();
+</script>
+</body>
+</html>
